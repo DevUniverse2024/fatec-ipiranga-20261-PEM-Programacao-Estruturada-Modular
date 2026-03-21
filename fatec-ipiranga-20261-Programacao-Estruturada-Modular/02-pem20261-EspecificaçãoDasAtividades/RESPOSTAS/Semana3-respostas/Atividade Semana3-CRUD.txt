@@ -1,0 +1,115 @@
+
+/*-------------------------------------------------------*
+*                      FATEC Ipiranga                    *
+* Disciplina: Programaçao Estruturada e Modular          *
+*          Prof. Veríssimo                               *
+*--------------------------------------------------------*
+* Objetivo do Programa: Atividade Semana3    CRUD        *
+* Data - 28/02/2025                                      * 
+* Autor: Prof Veríssimo                                  *
+*--------------------------------------------------------*/
+#include <stdio.h>
+#include <stdlib.h>
+
+#define TAM 10
+
+void exibirMenu() {
+    printf("\n--- SISTEMA DE PRODUTOS (CRUD) ---\n");
+    printf("1. Inclusao\n");
+    printf("2. Consulta\n");
+    printf("3. Alteracao\n");
+    printf("4. Exclusao\n");
+    printf("5. Listar Todos\n");
+    printf("0. Sair\n");
+    printf("Escolha uma opcao: ");
+}
+
+int main() {
+    int idProduto[TAM] = {0}; // Inicializa todos com 0 
+    int opcao, busca, novoId, i;
+    int encontrado;
+
+    do {
+        exibirMenu(); 
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1: // Inclusão 
+                encontrado = 0;
+                for (i = 0; i < TAM; i++) {
+                    if (idProduto[i] == 0) {
+                        printf("Digite o ID do produto para inclusao: ");
+                        scanf("%d", &idProduto[i]);
+                        printf("Produto cadastrado com sucesso no indice %d!\n", i);
+                        encontrado = 1;
+                        break;
+                    }
+                }
+                if (!encontrado) printf("Erro: Sistema cheio!\n");
+                break;
+
+            case 2: // Consulta
+                printf("Digite o ID para busca: ");
+                scanf("%d", &busca);
+                encontrado = 0;
+                for (i = 0; i < TAM; i++) {
+                    if (idProduto[i] == busca && busca != 0) {
+                        printf("ID %d encontrado na posicao (indice): %d\n", busca, i);
+                        encontrado = 1;
+                        break;
+                    }
+                }
+                if (!encontrado) printf("ID nao encontrado no sistema.\n"); 
+                break;
+
+            case 3: // Alteração 
+                printf("Digite o ID que deseja alterar: ");
+                scanf("%d", &busca);
+                encontrado = 0;
+                for (i = 0; i < TAM; i++) {
+                    if (idProduto[i] == busca && busca != 0) {
+                        printf("Digite o novo ID para esta posicao: ");
+                        scanf("%d", &idProduto[i]);
+                        printf("ID alterado com sucesso!\n");
+                        encontrado = 1;
+                        break;
+                    }
+                }
+                if (!encontrado) printf("ID nao localizado para alteracao.\n");
+                break;
+
+            case 4: // Exclusão (Atribuir 0) 
+                printf("Digite o ID que deseja remover: ");
+                scanf("%d", &busca);
+                encontrado = 0;
+                for (i = 0; i < TAM; i++) {
+                    if (idProduto[i] == busca && busca != 0) {
+                        idProduto[i] = 0; 
+                        printf("Produto removido com sucesso (ID resetado para 0)!\n");
+                        encontrado = 1;
+                        break;
+                    }
+                }
+                if (!encontrado) printf("ID nao localizado para exclusao.\n");
+                break;
+
+            case 5: // Listar Todos 
+                printf("\n--- LISTA DE PRODUTOS CADASTRADOS ---\n");
+                for (i = 0; i < TAM; i++) {
+                    if (idProduto[i] != 0) {
+                        printf("Indice [%d] -> ID: %d\n", i, idProduto[i]);
+                    }
+                }
+                break;
+
+            case 0:
+                printf("Saindo do sistema...\n");
+                break;
+
+            default:
+                printf("Opcao invalida!\n");
+        }
+    } while (opcao != 0);
+
+    return 0;
+}

@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+/* * Atividade Semana 2: Manipulação de Strings
+ * Disciplina: Programação Estruturada e Modular
+ * Aluno: [Seu Nome Aqui]
+ */
+
+int main() {
+    // Declaração de variáveis conforme o fluxograma
+    char frase[100]; // 
+    int i;           // 
+    int tamanho;     // 
+    int contadorPalavras = 1; // Inicializa com 1 conforme fluxograma  
+    // Entrada de dados
+    printf("Digite a frase completa: "); //  
+    fgets(frase, 100, stdin); // Recebe o valor em frase 
+
+    // Remove o '\n' (Enter) capturado pelo fgets se ele existir
+    frase[strcspn(frase, "\n")] = '\0';
+
+    // Calcula o tamanho da frase
+    tamanho = strlen(frase); // 
+
+    // Lógica do Algoritmo seguindo o Fluxograma
+    // Loop de i=0 até i < tamanho 
+    for (i = 0; i < tamanho; i++) {
+        
+        // Verifica se o caractere atual é um espaço 
+        if (frase[i] == ' ') {
+            
+            // Verifica se o próximo caractere NÃO é um espaço (caractere válido) 
+            // Isso evita contar múltiplos espaços seguidos como várias palavras
+            if (frase[i + 1] != ' ' && frase[i + 1] != '\0') {
+                contadorPalavras = contadorPalavras + 1; // 
+            }
+        }
+    }
+
+    // Exibição do resultado final 
+    printf("Total de palavras encontradas: %d\n", contadorPalavras);
+
+    return 0; 
+    }

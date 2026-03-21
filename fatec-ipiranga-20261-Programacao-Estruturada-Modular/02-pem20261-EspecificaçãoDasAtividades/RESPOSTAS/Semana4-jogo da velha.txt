@@ -1,0 +1,97 @@
+
+/*-------------------------------------------------------*
+*                      FATEC Ipiranga                    *
+* Disciplina: Programaçao Estruturada e Modular          *
+*          Prof. Veríssimo                               *
+*--------------------------------------------------------*
+* Objetivo do Programa: Aula 3-Jogo da Velha             *
+* Data - 28/02/2025                                      * 
+* Autor: Prof Veríssimo                                  *
+*--------------------------------------------------------*/
+#include <stdio.h>
+#include <stdbool.h>
+
+void ExibirTabuleiro(char tabuleiro[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%c", tabuleiro[i][j]);
+            if (j < 2) {
+                printf(" | ");
+            }
+        }
+        printf("\n");
+        if (i < 2) {
+            printf("---+---+---\n");
+        }
+    }
+}
+
+bool VerificarVencedor(char tabuleiro[3][3], char jogador) {
+    // Verificar linhas e colunas
+    for (int i = 0; i < 3; i++) {
+        if (tabuleiro[i][0] == jogador && tabuleiro[i][1] == jogador && tabuleiro[i][2] == jogador) {
+            return true;
+        }
+        if (tabuleiro[0][i] == jogador && tabuleiro[1][i] == jogador && tabuleiro[2][i] == jogador) {
+            return true;
+        }
+    }
+
+    // Verificar diagonais
+    if (tabuleiro[0][0] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][2] == jogador) {
+        return true;
+    }
+    if (tabuleiro[0][2] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][0] == jogador) {
+        return true;
+    }
+
+    return false;
+}
+
+int main() {
+    char tabuleiro[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
+    char jogador_atual = 'X';
+    bool vencedor = false;
+    int linha, coluna;
+
+    while (true) {
+        ExibirTabuleiro(tabuleiro);
+        printf("É a vez do jogador %c - Escolha a linha (1 a 3): ", jogador_atual);
+        scanf("%d", &linha);
+        printf("Escolha a coluna (1 a 3): ");
+        scanf("%d", &coluna);
+
+        if (tabuleiro[linha - 1][coluna - 1] == ' ') {
+            tabuleiro[linha - 1][coluna - 1] = jogador_atual;
+            if (VerificarVencedor(tabuleiro, jogador_atual)) {
+                ExibirTabuleiro(tabuleiro);
+                printf("O jogador %c venceu!\n", jogador_atual);
+                vencedor = true;
+                break;
+            } else {
+                jogador_atual = (jogador_atual == 'X') ? 'O' : 'X';
+            }
+        } else {
+            printf("Essa posição já está ocupada. Tente novamente.\n");
+        }
+
+        bool espaco_vazio = false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tabuleiro[i][j] == ' ') {
+                    espaco_vazio = true;
+                    break;
+                }
+            }
+            if (espaco_vazio) break;
+        }
+        if (!espaco_vazio) break;
+    }
+
+    if (!vencedor) {
+        ExibirTabuleiro(tabuleiro);
+        printf("O jogo terminou em empate.\n");
+    }
+
+    return 0;
+}
