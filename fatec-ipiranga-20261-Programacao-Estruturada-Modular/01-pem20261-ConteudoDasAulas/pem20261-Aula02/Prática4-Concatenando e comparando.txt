@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[50] = "Ola, ";
+    char str2[] = "mundo!";
+    printf("*-----------------------------------------*\n");
+    printf("*Prática 04 - Concatenando e comparando   *\n");
+    printf("*-----------------------------------------*\n");
+    // Concatena str2 em str1
+    strcat(str1, str2);
+    printf("Resultado: %s\n", str1);
+
+    // Comparacao (retorna 0 se forem iguais)
+    if (strcmp(str1, "Ola, mundo!") == 0) {
+        printf("As strings sao identicas.\n");
+    } else {
+        printf("As strings sao diferentes.\n");
+    }
+
+    return 0;
+}

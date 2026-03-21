@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    char frase[100];
+    printf("*-----------------------------------------*\n");
+    printf("*Prática 02 - Entrada de Dados            *\n");
+    printf("*-----------------------------------------*\n");
+    printf("Digite uma frase completa: ");
+    // fgets(variavel, tamanho, entrada_padrao)
+    fgets(frase, sizeof(frase), stdin);
+
+    printf("Voce digitou: %s", frase);
+    return 0;
+}

@@ -1,0 +1,22 @@
+/*------------------------------------------------------------------------*/
+/*   FATEC-Ipiranga                 PEM                                   */
+/*                         Prof Veríssimo                                 */
+/*             Objetivo: Soma Entre dois numeros                          */
+/*             Paradigama: - programação Estruturada com ponteiro              */
+/*                                                                        */
+/*                                                         Data:11/03/2024*/
+/*------------------------------------------------------------------------*/ /*------------------------------------------------------------------------*/
+
+  #include <stdio.h>
+int valor1=10;
+int valor2=20;
+int somaValores(int *parcela1Ponteiro, int *parcela2Ponteiro){
+  return *parcela1Ponteiro+*parcela2Ponteiro;
+}
+int main() {
+
+printf("==========RESULTADO============\n");
+int soma = somaValores( &valor1, &valor2);
+printf("soma: %d\n",soma);
+    return 0;
+}

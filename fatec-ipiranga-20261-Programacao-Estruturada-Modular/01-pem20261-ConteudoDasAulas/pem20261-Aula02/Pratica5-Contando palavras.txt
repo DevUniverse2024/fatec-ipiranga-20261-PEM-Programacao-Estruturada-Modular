@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    printf("*-----------------------------------------*\n");
+    printf("*Prática 05 - Contando Palavras           *\n");
+    printf("*-----------------------------------------*\n");
+    char frase[100] = "Estudar na Fatec e otimo";
+    int i, palavras = 1;
+
+    for(i = 0; frase[i] != '\0'; i++) {
+        if(frase[i] == ' ') {
+            palavras++;
+        }
+    }
+
+    printf("A frase possui %d palavras.\n", palavras);
+    return 0;
+}

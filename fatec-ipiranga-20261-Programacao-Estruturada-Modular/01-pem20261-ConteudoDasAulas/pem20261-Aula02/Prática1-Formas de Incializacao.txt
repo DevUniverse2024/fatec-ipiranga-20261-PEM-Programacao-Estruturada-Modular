@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main() {
+    // Declaracao basica com tamanho fixo
+    char nome[20] = "Fatec Ipiranga";
+    
+    // Inicializacao elemento por elemento (requer o \0 manual)
+    printf("*-----------------------------------------*\n");
+    printf("*Prática 01 - Forma de Inicialização      *\n");
+    printf("*-----------------------------------------*\n");
+        char saudacao[] = {'O', 'l', 'a', '\0'};
+
+    printf("%s\n", nome);
+    printf("%s\n", saudacao);
+    
+    return 0;
+}

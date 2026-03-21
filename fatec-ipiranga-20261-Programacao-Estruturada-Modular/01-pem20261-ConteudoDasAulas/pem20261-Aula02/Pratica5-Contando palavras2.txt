@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#include <string.h>
+int main() {
+    printf("*-----------------------------------------*\n");
+    printf("*Prática 05 - Contando Palavras           *\n");
+    printf("*-----------------------------------------*\n");
+    char frase[100];
+    printf("Digite uma frase completa: ");
+    fgets(frase, sizeof(frase), stdin);
+    int tamanho = (strlen(frase) -1);
+
+    printf("String copiada: %s\n", frase);
+    printf("Tamanho da string: %d caracteres\n", tamanho);
+    int i, palavras = 1;
+
+    for(i = 0; i < tamanho; i++) {
+        if(frase[i] == ' ') {
+            if(frase[i+1] != ' ') {
+               palavras++;
+             }
+        }
+    }
+
+    printf("A frase possui %d palavras.\n", palavras);
+    return 0;
+}

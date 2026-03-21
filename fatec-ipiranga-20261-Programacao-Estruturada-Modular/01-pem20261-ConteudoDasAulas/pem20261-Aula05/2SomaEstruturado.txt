@@ -1,0 +1,25 @@
+/*------------------------------------------------------------------------*/
+/*   FATEC-Ipiranga                 PEM                                   */
+/*                         Prof Veríssimo                                 */
+/*             Objetivo: Soma Entre dois numeros                          */
+/*             Paradigama: - programação linear                           */
+/*                                                                        */
+/*                                                         Data:11/03/2024*/
+/*------------------------------------------------------------------------*/ 
+  #include <stdio.h>
+  int valor1=10;
+  int valor2=20;
+  
+/* função para fazer a soma de 2 numeros*/
+int somaValores(int parcela1, int parcela2) {
+  
+  return parcela1+parcela2;
+}
+  int main() {
+      int soma=somaValores(valor1,valor2);
+      printf("O resultado da soma de %d e %d é %d\n",valor1,valor2,soma);
+
+
+  
+      return 0;
+  }

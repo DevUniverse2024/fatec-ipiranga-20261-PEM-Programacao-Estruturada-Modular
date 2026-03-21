@@ -1,0 +1,33 @@
+algoritmo "Contar_Palavras"
+
+var
+   frase : caractere
+   tamanho, i, palavras : inteiro
+
+inicio
+   
+   escreva("Digite uma frase completa: ")
+   leia(frase)
+   
+   // Em VisualG não precisamos subtrair 1,
+   // pois o leia não adiciona \n como o fgets.
+   tamanho <- compr(frase)
+
+   escreval("String copiada: ", frase)
+   escreval("Tamanho da string: ", tamanho, " caracteres")
+
+   palavras <- 1
+
+   // Em VisualG a string começa na posição 1
+   // e vamos até tamanho - 1 para poder verificar i+1
+   para i de 1 ate tamanho - 1 faca
+      se (copia(frase, i, 1) = " ") entao
+         se (copia(frase, i + 1, 1) <> " ") entao
+            palavras <- palavras + 1
+         fimse
+      fimse
+   fimpara
+
+   escreval("A frase possui ", palavras, " palavras.")
+
+fimalgoritmo

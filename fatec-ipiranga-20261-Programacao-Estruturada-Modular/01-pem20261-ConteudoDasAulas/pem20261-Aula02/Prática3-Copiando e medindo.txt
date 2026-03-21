@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char origem[] = "Programacao Modular";
+    char destino[50];
+    printf("*-----------------------------------------*\n");
+    printf("*Prática 03 - Copiando e Medindo Strings  *\n");
+    printf("*-----------------------------------------*\n");
+    // Copia origem para destino
+    strcpy(destino, origem);
+
+    // Mede o numero de caracteres (sem contar o \0)
+    int tamanho = strlen(destino);
+
+    printf("String copiada: %s\n", destino);
+    printf("Tamanho da string: %d caracteres\n", tamanho);
+    
+    return 0;
+}

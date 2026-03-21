@@ -1,0 +1,27 @@
+/*------------------------------------------------------------------------*/
+/*   FATEC-Ipiranga                 PEM                                   */
+/*                         Prof Veríssimo                                 */
+/*             Objetivo: Soma Entre dois numeros                          */
+/*             Paradigama: - programação linear com ponteiro              */
+/*                                                                        */
+/*                                                         Data:11/03/2024*/
+/*------------------------------------------------------------------------*/ /*------------------------------------------------------------------------*/
+
+  #include <stdio.h>
+int main() {
+    int num = 10;
+    printf("Valor de num: %d\n", num);
+
+
+int valor1=10;
+int valor2=20;
+int *ponteiroValor1=&valor1;
+int *ponteiroValor2=&valor2;
+printf("valor1: %d\n", *ponteiroValor1); 
+printf("valor2: %d\n", *ponteiroValor2); 
+
+int soma=*ponteiroValor1+*ponteiroValor2;
+printf("==========RESULTADO============\n");
+printf("soma: %d\n", soma);
+return 0;
+}
